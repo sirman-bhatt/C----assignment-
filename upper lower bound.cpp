@@ -1,26 +1,20 @@
-// Online C++ compiler to run C++ program online
 #include <iostream>
 #include <algorithm>
-#include <vector>
 using namespace std;
 
 int main() {
     
-    vector<int> a;
+    int a[100];
     
     int n;
     
-    cout<<"enter vector size : ";
+    cout<<"enter array size : ";
     cin>>n;
     
     for(int i=0;i<n;i++)
     {
-        int x;
-        
         cout<<"enter element : ";
-        cin>>x;
-        
-        a.push_back(x);
+        cin>>a[i];
     }
     
     cout<<"Before Sorting : ";
@@ -29,7 +23,7 @@ int main() {
         cout<<a[i]<<" ";
     }
     
-    sort(a.begin(),a.end());
+    sort(a,a+n);
     
     cout<<endl;
     cout<<"After Sorting : ";
@@ -45,11 +39,11 @@ int main() {
     cout<<"enter element : ";
     cin>>e;
     
-    auto it1 = upper_bound(a.begin(),a.end(),e);
-    cout<<"upper bound : "<<*it1<<endl;
+    int *up = upper_bound(a,a+n,e);
+    cout<<"upper bound : "<<*up<<endl;
     
-    auto it2 = lower_bound(a.begin(),a.end(),e);
-    cout<<"lower bound : "<<*it2<<endl;
+    int *lp = lower_bound(a,a+n,e);
+    cout<<"lower bound : "<<*lp<<endl;
 
     return 0;
 }
